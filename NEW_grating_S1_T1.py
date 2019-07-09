@@ -63,7 +63,7 @@ win = visual.Window(
     blendMode='avg', useFBO=True, 
     units='height')
 # store frame rate of monitor if we can measure it
-expInfo['frameRate'] = 1 #1HZ
+expInfo['frameRate'] = win.getActualFrameRate()
 if expInfo['frameRate'] != None:
     frameDur = 1.0 / round(expInfo['frameRate'])
 else:
@@ -77,7 +77,7 @@ defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "trial"
 grating_S1_T1 = visual.GratingStim(
-    win=win, name='grating_S1_T5',units='deg', 
+    win=win, name='grating_S1_T1',units='deg', 
     tex='sin', mask='circle',
     ori=0, pos=(0, 0), size=(3.5, 3.5), sf=0.6, phase=0,
     color=[1,1,1], colorSpace='rgb', opacity=1,blendmode='avg',
@@ -94,7 +94,6 @@ while keep_going:
     #grating_S1_T1.phase = 0
     #phase = phase + delta_phase
     #grating_S1_T1.phase = phase
-    
     grating_S1_T1.draw()
     win.flip()
     keys = event.getKeys()
